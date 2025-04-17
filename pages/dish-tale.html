@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dish & Its Tale - World Flavors</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html"><img src="../images/logo.svg" alt="Logo"></a>
+        </div>
+        <nav>
+            <div class="nav-links">
+                <div class="nav-dropdown">
+                    <a href="dishes.html" class="nav-link">Dishes</a>
+                    <div class="dropdown-content">
+                        <a href="dish-tale.html">Butter Chicken</a>
+                        <a href="tacodishtale.html">Tacos</a>
+                        <a href="dishes/australian-pie.html">Australian Pie</a>
+                    </div>
+                </div>
+                <a href="trivia.html" class="nav-link">Taste Test Trivia</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+            <div class="mobile-menu-icon">
+                <img src="../images/menu.svg" alt="Menu">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dish-container">
+            <div class="left-column">
+                <div class="dish-quote">
+                    <p>Come, pour all of our memories into a bowl of Indian food...</p>
+                </div>
+                <div class="mini-nav">
+                    <a href="tips.html" class="mini-nav-btn">Tips & Tricks</a>
+                    <a href="cook.html" class="mini-nav-btn">Cook It Up</a>
+                </div>
+            </div>
+
+            <div class="middle-column">
+                <div class="dish-image-container">
+                    <img src="../images/butterchicken.jpg" alt="Butter Chicken" class="dish-image">
+                    <h2 class="dish-name">Butter Chicken</h2>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="country-map">
+                    <img src="../images/india-map.svg" alt="Map of India">
+                    <p class="country-name">India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dish-history">
+            <h2 class="history-title">Dish History & Significance</h2>
+            <div class="history-content">
+                <p> Butter Chicken, or Murgh Makhani, was born in the heart of Delhi in the 1950s at the iconic Moti Mahal restaurant. It was invented by Kundan Lal Gujral, a Punjabi chef and restaurateur who was also one of the creators of the tandoori chicken. As legend goes, the dish was created as a happy accident — leftover tandoori chicken was mixed with a rich tomato-based gravy made with butter and cream to prevent it from drying out. This created a silky, flavorful curry that perfectly balanced spice and richness. It quickly became a favorite, both locally and internationally.</p>
+                    
+                <p>Significance</p>
+                <p>Chicken has grown to represent the warmth and indulgence of North Indian cuisine. It's often served during celebrations and special family meals, accompanied by naan or rice. Its creamy texture and mildly spiced flavor make it universally loved — even among those new to Indian food. Over time, the dish has become a global ambassador of Indian cuisine, featured in Indian restaurants across the world. It reflects the ingenuity of Indian chefs and how traditional techniques like tandoori cooking can be adapted to create something new and unforgettable.</p>
+                    
+                    Global Impact:
+                    Today, Butter Chicken is not just a comfort dish in Indian households, but a global favorite — adapted in various cultures, fusion menus, and even as pizza toppings or poutine in Canada. Its story also represents how migration, innovation, and necessity can shape culinary traditions.</p>
+            </div>
+        </div>
+
+        <!-- Dish Expansion Section -->
+        <div class="dish-expansion">
+            <h2 class="expansion-title">Explore More Indian Dishes</h2>
+            <div class="expansion-cards">
+                <div class="dish-card">
+                    <img src="../images/tandoori.jpg" alt="Tandoori Chicken" class="dish-image">
+                    <h3>Tandoori Chicken</h3>
+                    <div class="country-tag">
+                        <img src="../images/india-flag.png" alt="Indian Flag">
+                        North India
+                    </div>
+                    <div class="dish-content">
+                        <button class="close-button">×</button>
+                        <p>A classic Indian dish where chicken is marinated in yogurt and spices, then cooked in a traditional clay oven called a tandoor.</p>
+                    </div>
+                </div>
+
+                <div class="dish-card">
+                    <img src="../images/biryani.jpg" alt="Biryani" class="dish-image">
+                    <h3>Biryani</h3>
+                    <div class="country-tag">
+                        <img src="../images/india-flag.png" alt="Indian Flag">
+                        Hyderabad
+                    </div>
+                    <div class="dish-content">
+                        <button class="close-button">×</button>
+                        <p>A fragrant rice dish cooked with aromatic spices, meat or vegetables, and herbs. Each region in India has its own unique style of preparation.</p>
+                    </div>
+                </div>
+
+                <div class="dish-card">
+                    <img src="../images/dal.jpg" alt="Dal Makhani" class="dish-image">
+                    <h3>Dal Makhani</h3>
+                    <div class="country-tag">
+                        <img src="../images/india-flag.png" alt="Indian Flag">
+                        Punjab
+                    </div>
+                    <div class="dish-content">
+                        <button class="close-button">×</button>
+                        <p>A rich and creamy lentil dish made with black lentils, kidney beans, butter, and cream. Slow-cooked to perfection for maximum flavor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay for expanded cards -->
+        <div class="overlay"></div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const cards = document.querySelectorAll('.dish-card');
+                const overlay = document.querySelector('.overlay');
+
+                cards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        if (!this.classList.contains('expanded')) {
+                            this.classList.add('expanded');
+                            overlay.classList.add('active');
+                        }
+                    });
+
+                    const closeButton = card.querySelector('.close-button');
+                    closeButton.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        card.classList.remove('expanded');
+                        overlay.classList.remove('active');
+                    });
+                });
+
+                overlay.addEventListener('click', function() {
+                    const expandedCard = document.querySelector('.dish-card.expanded');
+                    if (expandedCard) {
+                        expandedCard.classList.remove('expanded');
+                        overlay.classList.remove('active');
+                    }
+                });
+            });
+
+            const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileMenuIcon.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.nav-links') && !event.target.closest('.mobile-menu-icon')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        </script>
+
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About us</a>
+            <a href="/help">Help</a>
+            <a href="map.html">Map</a>
+            <a href="/policy">Policy</a>
+        </div>
+        <p class="contact-info">Contact us: asethi@gmail.com</p>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+

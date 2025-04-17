@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taco - World Flavors</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html"><img src="../images/logo.svg" alt="Logo"></a>
+        </div>
+        <div class="mobile-menu-icon">
+            <img src="../images/navicon.png" alt="Menu">
+        </div>
+        <nav>
+            <div class="nav-links">
+                <div class="nav-dropdown">
+                    <a href="dishes.html" class="nav-link">Dishes</a>
+                    <div class="dropdown-content">
+                        <a href="dish-tale.html">Butter Chicken</a>
+                        <a href="tacodishtale.html">Tacos</a>
+                        <a href="dishes/australian-pie.html">Australian Pie</a>
+                    </div>
+                </div>
+                <a href="trivia.html" class="nav-link">Taste Test Trivia</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dish-container">
+            <div class="left-column">
+                <div class="dish-quote">
+                    <p>Life is better with tacos...</p>
+                </div>
+                <div class="mini-nav">
+                    <a href="tacocook.html" class="mini-nav-btn">Cook It Up</a>
+                    <a href="tacotips.html" class="mini-nav-btn">Tips & Tricks</a>
+                </div>
+            </div>
+
+            <div class="middle-column">
+                <div class="dish-image-container">
+                    <img src="../images/tacos.jpg" alt="Tacos" class="dish-image">
+                    <h2 class="dish-name">Tacos</h2>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="country-map">
+                    <img src="../images/mexico-map.svg" alt="Map of Mexico">
+                    <p class="country-name">Mexico</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="dish-history">
+            <h2 class="history-title">The Story of Tacos</h2>
+            <div class="history-content">
+                <p>Tacos are a traditional Mexican dish consisting of a corn or wheat tortilla folded or rolled around a filling. The origins of tacos predate the arrival of Europeans in Mexico, with evidence suggesting that indigenous people in the Valley of Mexico traditionally ate tacos filled with small fish.</p>
+                
+                <p>The word "taco" comes from the Nahuatl word "tlahco" which means "half" or "in the middle," referring to the way it is formed. Tacos were first documented in Mexico by the Spanish conquistadors, who observed indigenous people eating tacos with a variety of fillings.</p>
+                
+                <p>In the 19th century, tacos began to spread beyond Mexico, particularly to the United States, where they became popular in the southwestern states. The first mention of tacos in the United States appeared in a newspaper in 1905, and by the 1920s, taco stands were common in Los Angeles.</p>
+                
+                <p>Today, tacos have become a global phenomenon, with countless variations and fillings. From street food to gourmet restaurants, tacos represent the perfect combination of simplicity and flavor, embodying the essence of Mexican cuisine.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About us</a>
+            <a href="/help">Help</a>
+            <a href="map.html">Map</a>
+            <a href="/policy">Policy</a>
+        </div>
+        <p class="contact-info">Contact us: asethi@gmail.com</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuIcon.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-links') && !event.target.closest('.mobile-menu-icon')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

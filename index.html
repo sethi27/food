@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Flavors</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.svg" alt="World Flavors Logo">
+            </a>
+        </div>
+        <div class="mobile-menu-icon">
+            <img src="images/navicon.png" alt="Menu">
+        </div>
+        <nav>
+            <div class="nav-links">
+                <div class="nav-dropdown">
+                    <a href="pages/dishes.html" class="nav-link">Dishes</a>
+                    <div class="dropdown-content">
+                        <a href="pages/dish-tale.html">Butter Chicken</a>
+                        <a href="pages/tacodishtale.html">Tacos</a>
+                        <a href="pages/dishes/australian-pie.html">Australian Pie</a>
+                    </div>
+                </div>
+                <a href="pages/trivia.html" class="nav-link">Taste Test Trivia</a>
+                <a href="pages/about.html" class="nav-link">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="title-container">
+            <h1 class="title animate-fade-in">
+                Explore World Flavors Through Taste,
+                No Passport, No Flight, Just Stories.
+            </h1>
+        </div>
+
+        <div class="description-container">
+            <p class="description">
+                Food is more than just a meal—it's a story, a journey through cultures, traditions, and generations. World Flavors brings you the essence of global cuisine, allowing you to discover, learn, and experience flavors from around the world, all from the comfort of your home. No need for a passport or plane ticket—just an open heart and a curious palate. Each dish has a history, a unique tale woven into its ingredients and preparation. From time-honored recipes passed down through families to modern twists on traditional flavors, our platform is your gateway to exploring the world through taste.
+            </p>
+            <a href="pages/about.html" class="read-more-btn">More about us</a>
+        </div>
+
+        <div class="cta-section animate-fade-in">
+            <div class="cta-background">
+                Image
+            </div>
+            <p class="journey-text">Click, explore : Your Journey</p>
+            <p class="begins-text">Begins Here.</p>
+            <a href="pages/map.html" class="explore-btn">Explore</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="pages/about.html">About us</a>
+            <a href="/help">Help</a>
+            <a href="pages/map.html" class="map">Map</a>
+            <a href="/policy">Policy</a>
+        </div>
+        <p class="contact-info">Contact us:asethi@gmail.com</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuIcon.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-links') && !event.target.closest('.mobile-menu-icon')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

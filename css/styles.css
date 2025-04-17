@@ -1,0 +1,2637 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Merriweather', serif;
+    line-height: 1.8;
+    color: #000000;
+    background-color: #FDF8F8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Minimum viewport height */
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3%;
+    background-color: #FDF8F8;
+    position: relative;
+}
+
+/* Logo styles */
+.logo {
+    width: 80px;  /* Set fixed width for the circle */
+    height: 80px;  /* Set fixed height for the circle */
+    background-color: #E5E971;  /* Match the button background color */
+    border-radius: 50%;  /* Make it circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 0 #FF7F50;  /* Match the button shadow style */
+    z-index: 1000;
+}
+
+.logo img {
+    width: 60px;  /* Make logo slightly smaller than the circle */
+    height: 60px;
+    padding: 8px;  /* Add some padding inside the circle */
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Mobile menu icon */
+.mobile-menu-icon {
+    display: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.mobile-menu-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Navigation bar styles  */
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #09386A;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: 'Merriweather', serif;
+    background-color: #E5E971;
+    position: relative;
+    box-shadow: 0 3px 0 #FF7F50;
+    transform: translateY(0);
+    white-space: nowrap;
+    text-align: center;
+    min-width: 100px;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #FF7F50;
+}
+
+.nav-link:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+.nav-link.menu {
+    background-color: #D6DE78;
+    color: #09386A;
+    box-shadow: 0 4px 0 #FE8E4A;
+}
+
+.nav-link.menu:hover {
+    background-color: #D6DE78;
+}
+
+.nav-link.active {
+    background-color: #d8dc5f;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #FE8E4A;
+}
+
+/* Home button specific styles */
+.nav-link.home {
+    background-color: #D6DE78;
+    color: #09386A;
+    box-shadow: 0 4px 0 #FE8E4A;
+}
+
+.nav-link.home:hover {
+    background-color: #D6DE78;
+    box-shadow: 0 2px 0 #FE8E4A;
+}
+
+.nav-link.home:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+/* Mobile navigation styles */
+@media (max-width: 768px) {
+    .mobile-menu-icon {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #FDF8F8;
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-dropdown {
+        width: 100%;
+    }
+    
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        display: none;
+        padding-left: 20px;
+    }
+    
+    .nav-dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    .nav-link {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+/* Main content styles */
+main {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    text-align: center;
+    flex: 1;  /* Takes up remaining space, pushing footer down */
+}
+
+/* Main section titles - Poppins with brand red */
+.title,
+.mission-title,
+.dish-history .history-title,
+.tips-section h2,
+.key-ingredient h1,
+.other-ingredients h1,
+.recipe-section > h1,
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #FF4757;
+}
+
+/* Title size variations */
+.title {
+    font-size: 72px;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+.mission-title {
+    font-size: 2.8rem;
+    line-height: 1.3;
+    margin-bottom: 3rem;
+}
+
+.dish-history .history-title,
+.tips-section h2,
+.key-ingredient h1,
+.other-ingredients h1,
+.recipe-section > h1,
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Journey text styling */
+.journey-text,
+.begins-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.begins-text {
+    color: #FF4757;
+}
+
+/* Base text alignment for all paragraphs and content */
+p,
+.description,
+.mission-description,
+.dish-history .history-content,
+.ingredient-description,
+.tip-card p,
+.dish-story p,
+.recipe-section p,
+.ingredients-box li,
+.preparations-box p,
+.tip-text,
+.ingredient-card p,
+.tip-section p,
+.step p {
+    text-align: left;
+}
+
+/* Keep specific elements centered */
+.section-title,
+h1, h2, h3,
+.tips-section h2,
+.recipe-section > h1,
+.prep-times,
+.video-placeholder p {
+    text-align: center;
+}
+
+/* Specific adjustments for ingredient cards */
+.ingredient-card {
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: left;
+    transition: transform 0.3s ease;
+    max-width: 220px;
+    margin: 0 auto;
+}
+
+.ingredient-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 0.8rem;
+    display: block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ingredient-card:nth-child(odd) img {
+    border-color: transparent;
+}
+
+.ingredient-card:nth-child(even) img {
+    border-color: transparent;
+}
+
+.ingredient-card p {
+    color: #09386A;
+    font-family: 'Merriweather', serif;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+    padding: 0 0.5rem;
+}
+
+/* Hover effect */
+.ingredient-card:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Recipe section specific alignments */
+.recipe-column.ingredients h3,
+.recipe-column.ingredients .servings,
+.ingredient-category h4,
+.ingredient-category ul,
+.ingredient-category li,
+.step h4,
+.step p {
+    text-align: left;
+}
+
+.ingredient-description {
+    text-align: left;
+    padding: 0 1rem;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+/* Maintain center alignment for specific elements */
+.footer-links {
+    text-align: center;
+}
+
+.contact-info {
+    text-align: right;
+}
+
+/* Specific element sizing */
+.dish-name {
+    font-size: 1.5rem;
+}
+
+.country-name {
+    font-size: 1.2rem;
+}
+
+.tip-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Navigation */
+.nav-link {
+    font-family: 'Merriweather', serif;
+    color: #09386A;
+    background-color: #E5E971;
+    box-shadow: 0 3px 0 #FF7F50;
+}
+
+/* Footer */
+footer {
+    background-color: #E5E971;
+    padding: 2rem 5%;
+    margin-top: auto;  /* Ensures footer stays at bottom */
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+    text-align: left;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #09386A;
+}
+
+.footer-links a {
+    color: #09386A;
+    text-decoration: none;
+    margin-right: 2rem;
+    transition: color 0.3s ease;
+    font-family: 'Merriweather', serif;
+}
+
+.footer-links a:hover {
+    color: #ff4757;
+}
+
+.contact-info {
+    color:#09386A;
+    text-align: right;
+    padding-top: 1rem;
+    font-family: 'Merriweather', serif;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 1s ease forwards;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    nav {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.8rem;
+    }
+
+    .nav-link {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .mission-title,
+    .dish-history .history-title,
+    .tips-section h2,
+    .key-ingredient h1,
+    .other-ingredients h1,
+    .recipe-section > h1,
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .description {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .journey-text {
+        font-size: 1.2rem;
+    }
+
+    .begins-text {
+        font-size: 1.5rem;
+    }
+
+    /* Maintain font consistency on mobile */
+    p:not(.journey-text):not(.begins-text),
+    .description,
+    .mission-description,
+    .dish-history .history-content,
+    .ingredient-description,
+    .tip-card p,
+    .dish-story p,
+    .recipe-section p,
+    .ingredients-box li,
+    .preparations-box p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+/* Content section styles */
+.content-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.content-section h2 {
+    color: #1B3D5F;
+    margin-bottom: 2rem;
+}
+
+/* Card styles */
+.tip-card, .dish-story {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tip-card h3, .dish-story h3 {
+    color: #ff4757;
+    margin-bottom: 1rem;
+}
+
+.read-more-btn {
+    position: relative;
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #D6DE78;
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+    color: #09386A;
+    transition: transform 0.3s ease;
+    z-index: 1;
+    margin-left: 0;  /* Ensure left alignment */
+}
+
+.read-more-btn::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    bottom: -3px;
+    width: 100%;
+    height: 100%;
+    background-color: #CEE6FF;
+    border-radius: 25px;
+    z-index: -1;
+}
+
+.read-more-btn:hover {
+    transform: translateY(-2px);
+} 
+
+
+/* ButterChicken Page Styles */
+/* Dish Tale Page Styles , History Significance page  */
+
+.dish-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Quote Section */
+.dish-quote {
+    background-color: #E5E971;
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.dish-quote p {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    color: #09386A;
+    line-height: 1.8;
+}
+
+/* Dish Image Section */
+.dish-image-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.dish-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    border: 2px solid #E5E971;
+}
+
+/* Country Map Section */
+.country-map {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.country-map img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+}
+
+/* History Section */
+.dish-history {
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.history-title {
+    font-family: 'Poppins', sans-serif;
+    color: #FF4757;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.history-content {
+    font-family: 'Merriweather', serif;
+    line-height: 1.8;
+    color: #09386A;
+    text-align: justify;
+}
+
+/* Responsive Design for Dish Tale Page */
+@media (max-width: 1024px) {
+    .dish-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .left-column,
+    .middle-column,
+    .right-column {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .dish-container {
+        padding: 1rem;
+    }
+
+    .country-map img {
+        width: 60%;
+        max-width: 200px;
+    }
+
+    .history-title {
+        font-size: 2rem;
+    }
+
+    .dish-image {
+        max-width: 100%;
+    }
+}
+
+/* Interactive Map Page Styles */
+
+.map-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.region-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.region-info h2 {
+    color: #FF4757;
+    font-family: 'Merriweather', serif;
+    margin-bottom: 1rem;
+}
+
+.region-info p {
+    color: #666;
+    font-family: 'Merriweather', serif;
+    line-height: 1.6;
+}
+
+.leaflet-popup-content {
+    font-family: 'Merriweather', serif;
+}
+
+.leaflet-popup-content h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.custom-icon {
+    width: 32px !important;
+    height: 32px !important;
+    border: none;
+    border-radius: 50%;
+    background: none;
+}
+
+/*  styles for the popup link */
+.leaflet-popup-content a:hover {
+    color: #ff6b3d !important;
+    text-decoration: underline !important;
+}
+
+/* All body text in Merriweather */
+p:not(.journey-text):not(.begins-text),
+.description,
+.mission-description,
+.dish-history .history-content,
+.ingredient-description,
+.tip-card p,
+.dish-story p,
+.recipe-section p,
+.ingredients-box li,
+.preparations-box p,
+.tip-text,
+.country,
+.recipe-note,
+.dish-quote p,
+.contact-info,
+.footer-links a,
+.ingredient-card p,
+.servings,
+.step p,
+.recipe-timing span,
+.ingredients-box h3,
+.preparations-box h3,
+.ingredient-category h4,
+.step h4,
+.tip-title {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #000000;
+}
+
+/* Headings with Merriweather */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+}
+
+/* Specific text elements */
+.mission-label,
+.tip-title,
+.recipe-section h2,
+.ingredients-box h3,
+.preparations-box h3,
+.servings,
+.ingredient-category h4,
+.step h4 {
+    font-family: 'Merriweather', serif;
+}
+
+/* Recipe and ingredient text */
+.ingredient-card p,
+.recipe-timing span,
+.step p {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+}
+
+/* Tips page text */
+.tip-content p,
+.tip-title {
+    font-family: 'Merriweather', serif;
+}
+
+/* About page text */
+.mission-description p {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+}
+
+/* Buttons and interactive elements */
+.explore-btn,
+.read-more-btn {
+    font-family: 'Merriweather', serif;
+}
+
+/* Footer text */
+footer p,
+footer a {
+    font-family: 'Merriweather', serif;
+}
+
+/* Ensure consistent font weight */
+.regular-text {
+    font-weight: 400;
+}
+
+.light-text {
+    font-weight: 300;
+}
+
+.bold-text {
+    font-weight: 700;
+}
+
+/* Make sure other headings in recipe section stay in Merriweather */
+.recipe-section .ingredients-box h3,
+.recipe-section .preparations-box h3,
+.recipe-section .ingredient-category h4,
+.recipe-section .step h4 {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+}
+
+/* Subtitle elements in coral color */
+.dish-name,
+.country-name,
+.ingredient-category h4,  /* For Filling, Base, Sauce titles */
+.step h4,  /* For Step titles */
+.tip-title {  /* For tip titles */
+    font-family: 'Merriweather', serif;
+    color: #FF7F50;  /* Coral color */
+}
+
+/* Specific styling for ingredient categories */
+.ingredient-category.filling h4,
+.ingredient-category.base h4,
+.ingredient-category.sauce h4 {
+    color: #FF7F50;
+    font-style: italic;
+}
+
+/* Step numbers */
+.step h4 {
+    color: #FF7F50;
+    margin-bottom: 0.5rem;
+}
+
+/* Dish and country names */
+.dish-name,
+.country-name {
+    color: #FF7F50;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.dish-name {
+    font-size: 1.5rem;
+}
+
+.country-name {
+    font-size: 1.2rem;
+}
+
+/* Tips titles */
+.tip-title {
+    color: #FF7F50;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Ensure these colors aren't overridden */
+.ingredient-category h4,
+.step h4,
+.dish-name,
+.country-name,
+.tip-title {
+    color: #FF7F50 !important;
+}
+
+/* Update the description styles */
+.description {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    color: #09386A;
+    line-height: 1.8;
+    text-align: left;  /* Explicitly set left alignment */
+    max-width: 1000px;  /* Maintain readable width */
+    margin: 0 auto 2rem;
+}
+
+.description-container {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    text-align: left;  /* Container also aligned left */
+}
+
+/* Trivia Page Styles */
+.trivia-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: #f5f5f5;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.trivia-title {
+    font-family: 'Poppins', sans-serif;
+    color: #09386A;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Score Section */
+.score-section {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.score-label {
+    font-family: 'Merriweather', serif;
+    color: #09386A;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.score-bar {
+    width: 100%;
+    height: 4px;
+    background: #fff;
+    border-radius: 2px;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+/* Ranking Section */
+.ranking-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.ranking-title {
+    font-family: 'Merriweather', serif;
+    color: #09386A;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.ranking-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ranking-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+    font-family: 'Merriweather', serif;
+    color: #09386A;
+}
+
+.ranking-item:last-child {
+    border-bottom: none;
+}
+
+/* Start Quiz Button */
+.start-quiz-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: #FF4757;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem;
+}
+
+.start-quiz-btn:hover {
+    background-color: #ff2d40;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .trivia-container {
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+
+    .trivia-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Cook Page Styles */
+
+/* Ingredients Section */
+.ingredients-section {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+/* Key Ingredient Area */
+.key-ingredient {
+    margin-bottom: 4rem;
+}
+
+.key-ingredient h2 {
+    color: #FF4757;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Key Ingredient styles */
+.key-ingredient-diagram {
+    width: 380px;
+    height: 380px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 2px solid #E5E971;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diagram-container {
+    width: 300px;
+    height: 300px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.ingredient-image {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.ingredient-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ingredient-text {
+    font-family: 'Merriweather', serif;
+    color: #000000;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+.ingredient-description {
+    margin: 2rem auto;
+    max-width: 800px;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+}
+
+/* Other Ingredients Grid */
+.other-ingredients {
+    margin-top: 4rem;
+    margin-bottom: 6rem; /* Increased space after ingredient boxes */
+}
+
+.other-ingredients h2 {
+    color: #FF4757;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 1.5rem;
+    padding: 0 2rem;
+}
+
+.ingredient-card {
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    background: white;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.ingredient-card:nth-child(odd) {
+    border: 2px solid #09386A;
+}
+
+.ingredient-card:nth-child(even) {
+    border: 2px solid #FF7F50;
+}
+
+.ingredient-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.ingredient-card p {
+    color: #000000;
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Remove hover effects */
+.ingredient-card:hover {
+    transform: none;
+}
+
+.ingredient-card:hover img {
+    transform: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .ingredients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ingredient-card img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .ingredient-card p {
+        font-size: 1rem;
+    }
+}
+
+/* Recipe Section */
+.recipe-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+.recipe-section h2 {
+    color: #FF4757;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Preparation Times */
+.prep-times {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.time-item {
+    background-color: #E5E971;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    color: #09386A;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Recipe Layout */
+.recipe-columns {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.recipe-column {
+    padding: 2rem;
+    border: 2px solid #E5E971;
+    border-radius: 15px;
+    background: white;
+}
+
+.recipe-column.ingredients {
+    flex: 0 0 300px;
+    text-align: left;
+}
+
+.recipe-column.preparations {
+    flex: 1;
+}
+
+/* Ingredients Styling */
+.recipe-column.ingredients h3,
+.recipe-column.ingredients .servings,
+.ingredient-category h4,
+.ingredient-category ul,
+.ingredient-category li {
+    text-align: left;
+}
+
+.ingredient-category li {
+    padding-left: 0;
+}
+
+.recipe-column.ingredients h3 {
+    color: #FF4757;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.servings {
+    color: #FF4757;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin: 1rem 0;
+}
+
+.ingredient-category {
+    margin-bottom: 1.5rem;
+}
+
+.ingredient-category h4 {
+    color: #FF7F50;
+    margin: 1.5rem 0 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+}
+
+.ingredient-category ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.ingredient-category ul li {
+    margin-bottom: 0.5rem;
+    color: #09386A;
+    font-family: 'Merriweather', serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.step {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #E5E971;
+}
+
+.step:last-child {
+    border-bottom: none;
+}
+
+.step h4 {
+    color: #FF7F50;
+    margin-bottom: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+}
+
+.step p {
+    color: #09386A;
+    font-family: 'Merriweather', serif;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* Video Section */
+.recipe-video {
+    width: 100%;
+    max-width: 800px;
+    margin: 6rem auto; /* Increased space around video section */
+    padding: 0 1rem;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #E5E971;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.video-placeholder:hover {
+    background-color: #ebebeb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.play-button {
+    width: 64px;
+    height: 64px;
+    background-color: #FF4757;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.video-placeholder:hover .play-button {
+    transform: scale(1.1);
+}
+
+.video-placeholder p {
+    color: #09386A;
+    font-family: 'Merriweather', serif;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Responsive adjustments for video section */
+@media (max-width: 768px) {
+    .video-placeholder {
+        height: 300px;
+    }
+
+    .play-button {
+        width: 48px;
+        height: 48px;
+    }
+
+    .video-placeholder p {
+        font-size: 1rem;
+    }
+
+    .other-ingredients {
+        margin-bottom: 4rem;
+    }
+    
+    .recipe-video {
+        margin: 4rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-placeholder {
+        height: 250px;
+    }
+
+    .play-button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Tips Page Styles */
+.tips-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.tips-section h2 {
+    color: #2e4057;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.tip-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.tip-header {
+    padding: 1.5rem;
+    background: #f7c59f;
+    color: #2e4057;
+    position: relative;
+    border-radius: 12px 12px 0 0;
+}
+
+.tip-header h3 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.tip-content {
+    padding: 1.5rem;
+    background: #fff;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.tip-section {
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.tip-section:last-child {
+    margin-bottom: 0;
+}
+
+.tip-section h4 {
+    color: #ff6b35;
+    margin-bottom: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tip-section p {
+    color: #1a1a1a;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Custom scrollbar for tip content */
+.tip-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tip-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.tip-content::-webkit-scrollbar-thumb {
+    background: #f7c59f;
+    border-radius: 4px;
+}
+
+.tip-content::-webkit-scrollbar-thumb:hover {
+    background: #ff6b35;
+}
+
+/* Remove expand button and related styles */
+.expand-button {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .tips-grid {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tip-header {
+        padding: 1.2rem;
+    }
+    
+    .tip-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .tip-content {
+        max-height: 250px;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 500px;
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        max-height: 500px;
+        opacity: 1;
+    }
+    to {
+        max-height: 0;
+        opacity: 0;
+    }
+}
+
+/* Dish header and image placeholder styles */
+.dish-header {
+    margin-bottom: 3rem;
+}
+
+.dish-image-placeholder {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dish-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dish-image-placeholder {
+        height: 300px;
+    }
+
+    .tip-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .tip-icon {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dish-image-placeholder {
+        height: 250px;
+    }
+}
+
+/* About Page Styles */
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Mission Section */
+.mission-section {
+    margin: 4rem 0;
+    position: relative;
+    padding-top: 3rem;
+}
+
+.mission-label {
+    font-family: 'Merriweather', serif;
+    color: #09386A;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.mission-title {
+    font-family: 'Poppins', sans-serif;
+    color: #FF4757;
+    font-size: 2.8rem;
+    line-height: 1.3;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    text-align: left;
+}
+
+.mission-description {
+    font-family: 'Merriweather', serif;
+    color: #09386A;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 1000px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.mission-description p {
+    margin-bottom: 1.5rem;
+}
+
+/* Image Placeholder */
+.image-placeholder {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background: white;
+    border: 2px dashed #E5E971;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Content Layout */
+.content-wrapper {
+    max-width: calc(100% - 350px);
+}
+
+/* Responsive Design for About Page */
+@media (max-width: 1400px) {
+    .content-wrapper {
+        max-width: calc(100% - 450px);
+    }
+}
+
+@media (max-width: 1200px) {
+    .mission-title {
+        max-width: 700px;
+    }
+
+    .mission-description {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content-wrapper {
+        max-width: 100%;
+    }
+
+    .mission-title,
+    .mission-description {
+        max-width: 100%;
+    }
+
+    .image-placeholder {
+        position: relative;
+        margin: 0 auto 2rem auto;
+        top: 0;
+        right: auto;
+        width: 300px;
+        height: 300px;
+    }
+
+    .mission-section {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 1rem;
+    }
+
+    .mission-section {
+        margin: 2rem 0;
+    }
+
+    .mission-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .mission-description {
+        font-size: 1rem;
+    }
+
+    .image-placeholder {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* Home Page Styles */
+
+/* Call to Action Section */
+.cta-section {
+    margin-top: 4rem;
+    position: relative;
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.cta-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 300px;
+    background: #f5f5f5;
+    border: 2px dashed #E5E971;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #09386A;
+    z-index: -1;
+}
+
+/* Journey Text Styles */
+.journey-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+    color: #09386A;
+}
+
+.begins-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #FF4757;
+    position: relative;
+    z-index: 1;
+}
+
+/* Explore Button */
+.explore-btn {
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    background-color: #FF4757;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+    font-family: 'Merriweather', serif;
+}
+
+.explore-btn:hover {
+    transform: translateY(-2px);
+    background-color: #ff2d40;
+}
+
+/* Animations */
+.animate-fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design for Home Page */
+@media (max-width: 768px) {
+    .cta-background {
+        height: 250px;
+    }
+    
+    .cta-section {
+        padding: 2rem 0;
+    }
+
+    .journey-text {
+        font-size: 1.3rem;
+    }
+
+    .begins-text {
+        font-size: 1.6rem;
+    }
+
+    .explore-btn {
+        padding: 0.8rem 2.5rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-background {
+        height: 200px;
+        opacity: 0.5;
+    }
+    
+    .cta-section {
+        padding: 1.5rem 0;
+    }
+
+    .journey-text {
+        font-size: 1.2rem;
+    }
+
+    .begins-text {
+        font-size: 1.4rem;
+    }
+}
+
+/* Quiz Page Styles */
+.quiz-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: #f5f5f5;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-title {
+    font-family: 'Poppins', sans-serif;
+    color: #09386A;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Timer Section */
+.timer-section {
+    background: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.timer-display {
+    font-family: 'Merriweather', serif;
+    font-size: 1.2rem;
+    color: #09386A;
+    font-weight: bold;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.timer-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem;
+}
+
+/* Score Bar Section */
+.score-section {
+    margin: 2rem 0;
+}
+
+.score-label {
+    font-family: 'Merriweather', serif;
+    color: #09386A;
+    margin-bottom: 0.5rem;
+}
+
+.score-bar {
+    width: 100%;
+    height: 8px;
+    background: white;
+    border-radius: 4px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.score-progress {
+    width: 0%;
+    height: 100%;
+    background: #FF4757;
+    transition: width 0.3s ease;
+}
+
+/* Quiz Content Area */
+.quiz-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    min-height: 300px; /* Space for questions and answers */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quiz-container {
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+
+    .quiz-title {
+        font-size: 1.8rem;
+    }
+
+    .timer-section {
+        padding: 0.6rem 1rem;
+    }
+
+    .quiz-content {
+        padding: 1.5rem;
+        min-height: 250px;
+    }
+}
+
+/* Quiz intro styles */
+.quiz-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.quiz-intro h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #FF4757;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.quiz-description {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-description p {
+    color: #000000;
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.quiz-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .quiz-intro {
+        padding: 1rem;
+    }
+
+    .quiz-intro h2 {
+        font-size: 2rem;
+    }
+
+    .quiz-description {
+        padding: 1.5rem;
+    }
+
+    .quiz-description p {
+        font-size: 1rem;
+    }
+}
+
+/* Remove these styles if they exist */
+.best-ranking,
+.ranking-list,
+.ranking-item {
+    display: none;  /* This will hide any existing ranking elements */
+}
+
+/* Dropdown Menu Styles */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FDF8F8;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border-radius: 10px;
+    overflow: hidden;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown-content a {
+    color: #09386A;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Merriweather', serif;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #E5E971;
+    color: #09386A;
+}
+
+.dropdown-content a:active {
+    background-color: #d8dc5f;
+}
+
+/* Add a small arrow indicator */
+.nav-dropdown .nav-link::after {
+    content: '▼';
+    font-size: 0.7em;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Mini Navigation Bar */
+.mini-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.mini-nav-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #ff6b35;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 150px;
+}
+
+.mini-nav-btn:hover {
+    background-color: #e55a2b;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Dish Expansion Styles */
+.dish-expansion {
+    padding: 2rem;
+    background: #f8f8f8;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.expansion-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.expansion-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 350px));
+    gap: 2.5rem;
+    padding: 3rem;
+    background: #f8f8f8;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.dish-card {
+    background: white;
+    border-radius: 24px;
+    min-height: 300px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.dish-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.dish-card.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    max-height: 90vh;
+    z-index: 1000;
+    cursor: auto;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dish-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.dish-header {
+    padding: 1.5rem;
+    background: white;
+    position: relative;
+    z-index: 2;
+}
+
+.dish-card h3 {
+    font-size: 3rem;
+    color: #1a1a1a;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    hyphens: auto;
+    transition: transform 0.3s ease;
+}
+
+.country-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFD93D;
+    color: #1a1a1a;
+    padding: 0.75rem 2rem;
+    border-radius: 100px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    min-width: 160px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.country-tag img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.dish-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    padding: 2.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dish-card.expanded .dish-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.dish-card.expanded .close-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    /* Global Layout */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    main {
+        padding: 1rem;
+        margin: 1rem auto;
+        width: 100%;
+    }
+
+    /* Header and Navigation */
+    header {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .logo img {
+        width: 120px;
+        height: auto;
+    }
+
+    nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    /* Typography */
+    h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* Content Sections */
+    .content-section {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    /* Tips Section */
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .tip-card {
+        margin: 0;
+        width: 100%;
+    }
+
+    .tip-header {
+        padding: 1rem;
+    }
+
+    .tip-content {
+        padding: 1rem;
+        max-height: none;
+    }
+
+    /* Dish Container */
+    .dish-container {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .left-column,
+    .middle-column,
+    .right-column {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .dish-image-placeholder {
+        height: auto;
+        min-height: 200px;
+    }
+
+    /* Buttons and Interactive Elements */
+    .explore-btn,
+    .mini-nav-btn,
+    .nav-link {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        min-height: 44px; /* Minimum touch target size */
+    }
+
+    /* Footer */
+    footer {
+        padding: 1.5rem 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer-links a {
+        display: block;
+        padding: 0.5rem;
+    }
+
+    /* Dish Tale Cards */
+    .expansion-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .dish-card {
+        width: 100%;
+        min-height: 250px;
+        padding: 1.5rem;
+    }
+
+    .dish-card h3 {
+        font-size: 1.8rem;
+    }
+
+    /* Tips Section - Restore Scrolling */
+    .tip-content {
+        max-height: 300px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 1rem;
+    }
+
+    .tip-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .tip-header {
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        background: #f7c59f;
+        z-index: 1;
+    }
+
+    /* Custom Scrollbar for Tips */
+    .tip-content::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .tip-content::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+
+    .tip-content::-webkit-scrollbar-thumb {
+        background: #f7c59f;
+        border-radius: 3px;
+    }
+
+    .tip-content::-webkit-scrollbar-thumb:hover {
+        background: #ff6b35;
+    }
+
+    /* Recipe Layout */
+    .recipe-columns {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .recipe-column {
+        width: 100%;
+        order: 1; /* Default order */
+    }
+
+    .recipe-column.ingredients {
+        order: 0; /* Show ingredients first */
+    }
+
+    .recipe-column.preparations {
+        order: 1; /* Show preparations second */
+    }
+
+    /* Recipe Section Spacing */
+    .recipe-section {
+        padding: 1rem;
+    }
+
+    .recipe-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Preparation Times */
+    .prep-times {
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .time-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ingredients Styling */
+    .ingredient-category {
+        margin-bottom: 1.5rem;
+    }
+
+    .ingredient-category h4 {
+        font-size: 1.2rem;
+        margin: 1rem 0 0.5rem;
+    }
+
+    .ingredient-category ul li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Preparation Steps */
+    .step {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .step h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .step p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    /* Typography */
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    /* Spacing */
+    .content-section {
+        padding: 0.8rem;
+    }
+
+    .tips-grid {
+        gap: 1rem;
+        padding: 0.8rem;
+    }
+
+    /* Buttons */
+    .explore-btn,
+    .mini-nav-btn,
+    .nav-link {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    /* Images */
+    .dish-image-placeholder {
+        min-height: 180px;
+    }
+
+    .dish-card {
+        min-height: 220px;
+        padding: 1.2rem;
+    }
+
+    .dish-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .tip-content {
+        max-height: 250px;
+    }
+
+    .recipe-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .ingredient-category h4 {
+        font-size: 1.1rem;
+    }
+
+    .step h4 {
+        font-size: 1.1rem;
+    }
+
+    .time-item {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape Mode */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    header {
+        flex-direction: row;
+        padding: 0.8rem;
+    }
+
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-link {
+        width: auto;
+        min-width: 120px;
+    }
+}
+
